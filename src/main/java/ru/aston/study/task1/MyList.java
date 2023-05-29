@@ -8,7 +8,7 @@ import java.util.Comparator;
  * @param <E> тип элементов коллекции
  * @author Andrey Bogatyrev
  */
-public interface MyList<E> {//Iterable для работы с arraylist
+public interface MyList<E> {
 
     /**
      * Добавление элемента в конец списка.
@@ -16,7 +16,7 @@ public interface MyList<E> {//Iterable для работы с arraylist
      * @param element значение элемента, которое мы ходим добавить
      * @return true если элемент успешно добавлен
      */
-    boolean add(E element); //добавление
+    boolean add(E element);
 
     /**
      * Добавление элемента по индексу.
@@ -25,14 +25,14 @@ public interface MyList<E> {//Iterable для работы с arraylist
      * @param element значение элемента, которое мы ходим добавить
      * @return true если элемент успешно добавлен
      */
-    public boolean add(int index, E element);
+    boolean add(int index, E element);
 
     /**
      * Удаление элемента по индексу.
      *
      * @param index индекс ячейки из которой мы хотим удалить элемент
      */
-    void delete(int index); //удаление по индексу
+    void delete(int index);
 
     /**
      * Получение элемента по индексу.
@@ -40,14 +40,14 @@ public interface MyList<E> {//Iterable для работы с arraylist
      * @param index индекс ячейки из которой мы хотим получить элемент
      * @return возвращает значение элемента в соответствующей ячейке
      */
-    E get(int index);//получение по индексу
+    E get(int index);
 
     /**
      * Получение размера коллекции.
      *
      * @return возвращает количество добавленных в коллекцию элементов
      */
-    int size();//получение размера
+    int size();
 
     /**
      * Обновление значения элемента по индексу.
@@ -55,7 +55,7 @@ public interface MyList<E> {//Iterable для работы с arraylist
      * @param index   индекс ячейки в которой мы хотим обновить значение элемент
      * @param element новое значение элемента
      */
-    void update(int index, E element);//обновление значения по индексу
+    void update(int index, E element);
 
     /**
      * Очистка коллекции.

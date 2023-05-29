@@ -3,9 +3,7 @@ package ru.aston.study.task1;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.List;
-
 
 /**
  * Модульный тест для {@link MyListImpl}
@@ -17,7 +15,7 @@ public class MyListImplTest {
     private final MyListImpl<String> list = new MyListImpl<>();
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         list.add("Строка1");
         list.add("Строка2");
         list.add("Строка3");
@@ -25,13 +23,13 @@ public class MyListImplTest {
     }
 
     @AfterEach
-    public void cleanUp() {
+    void cleanUp() {
         list.clear();
     }
 
     @Test
     @DisplayName("Should add element to end of the list")
-    public void testAdd() {
+    void testAdd() {
         //given
         var toAdd = "Строка";
 
@@ -45,7 +43,7 @@ public class MyListImplTest {
     @ParameterizedTest
     @MethodSource("testAddByIndexData")
     @DisplayName("Should add element by index to the list")
-    public void testAddByIndex(Integer index) {
+    void testAddByIndex(Integer index) {
         //given
         var toAdd = "Строка";
 
@@ -58,7 +56,7 @@ public class MyListImplTest {
 
     @Test
     @DisplayName("Should not add element by index to the list")
-    public void testAddByIndexFailed() {
+    void testAddByIndexFailed() {
         //given
         var index = 1337;
         var toAdd = "Строка";
@@ -69,7 +67,7 @@ public class MyListImplTest {
 
     @Test
     @DisplayName("Should delete element by index from the list")
-    public void testDeleteByIndex() {
+    void testDeleteByIndex() {
         //given
         var index = 2;
 
@@ -83,7 +81,7 @@ public class MyListImplTest {
     @ParameterizedTest
     @MethodSource("testDeleteByIndexData")
     @DisplayName("Should not delete element by index from the list")
-    public void testNotDeleteByIndex(Integer index) {
+    void testNotDeleteByIndex(Integer index) {
 
         //then
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.delete(index));
@@ -91,7 +89,7 @@ public class MyListImplTest {
 
     @Test
     @DisplayName("Should get element by index from the list")
-    public void testGet() {
+    void testGet() {
         //given
         var index = 2;
 
@@ -105,14 +103,14 @@ public class MyListImplTest {
     @ParameterizedTest
     @MethodSource("testNotGetData")
     @DisplayName("Should not get element by index from the list")
-    public void testNotGet(Integer index) {
+    void testNotGet(Integer index) {
         //then
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> list.get(index));
     }
 
     @Test
     @DisplayName("Should get size of the list")
-    public void testGetSize() {
+    void testGetSize() {
         //given
         var expectedResult = 4;
 
@@ -125,7 +123,7 @@ public class MyListImplTest {
 
     @Test
     @DisplayName("Should update element by index from the list")
-    public void testUpdate() {
+    void testUpdate() {
         //given
         var index = 2;
         var element = "Строка";
@@ -140,7 +138,7 @@ public class MyListImplTest {
     @ParameterizedTest
     @MethodSource("testNotUpdateData")
     @DisplayName("Should not update element by index from the list")
-    public void testNotUpdate(Integer index) {
+    void testNotUpdate(Integer index) {
         //given
         var element = "Строка";
 
@@ -150,7 +148,7 @@ public class MyListImplTest {
 
     @Test
     @DisplayName("Should clear list")
-    public void testClearList() {
+    void testClearList() {
         //given
         var expectedResult = 0;
 
@@ -162,8 +160,8 @@ public class MyListImplTest {
     }
 
     @Test
-    @DisplayName("Should Sort work")
-    public void testSort() {
+    @DisplayName("Should sort work")
+    void testSort() {
         //given
         var expectedResult = new MyListImpl<>();
         expectedResult.add("Строка1");
@@ -180,7 +178,6 @@ public class MyListImplTest {
         }
 
     }
-
 
     private static List<Integer> testAddByIndexData() {
         return List.of(2, 4);

@@ -43,6 +43,7 @@ public class Utils {
 
             while (list.get(i).compareTo(border) < 0) i++;
             while (list.get(j).compareTo(border) > 0) j--;
+
             if (i <= j) {
                 T swap = list.get(i);
                 list.update(i, list.get(j));
@@ -82,7 +83,6 @@ public class Utils {
 
         //выбираем опорный элемент
         int middle = min + (max - min) / 2;
-        //int border = list.get(middle);
         T border = list.get(middle);
 
         //разделияем на подмассивы и меняем местами
@@ -90,7 +90,6 @@ public class Utils {
         while (i <= j) {
             while (camp.compare(list.get(i), border) < 0) i++;
             while (camp.compare(list.get(j), border) > 0) j--;
-
 
             if (i <= j) {
                 T swap = list.get(i);
